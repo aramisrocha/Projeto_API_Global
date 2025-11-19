@@ -1,0 +1,20 @@
+
+Api Global
+
+
+- Subir a rede
+- definir o que vai fazer a api
+- Subir o Banco
+- Criar as APIS
+
+
+
+Exemplo 1 — API de Cotações (Aurora Global Database)
+
+API Gateway (Regional) em duas regiões (ex: us-east-1 e sa-east-1).
+
+Cada API aciona uma Lambda que busca dados da bolsa (ex: via API externa).
+
+Os dados são gravados no Aurora Global Database (writer em uma região, replica global na outra).
+
+Route 53 com Latency-Based + Failover aponta os usuários para a API mais próxima e redireciona se uma região cair.
