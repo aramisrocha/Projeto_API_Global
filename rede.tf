@@ -15,12 +15,11 @@ provider "aws" {
 module "network_devops_01" {
   source = "../Modules/networking"
 
-  name                  = "Projeto_network"
+  name                  = "Projeto_api_global"
   vpc_cidr              = "10.0.0.0/16"
   enable_dns_hostnames  = true
   subnets = [
     { name = "SubnetA", cidr = "10.0.1.0/24", az = "us-east-2a" },
-    { name = "SubnetB", cidr = "10.0.2.0/24", az = "us-east-2b" },
   ]
 }
 
