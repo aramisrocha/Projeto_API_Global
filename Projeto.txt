@@ -2,8 +2,10 @@
 Api Global
 
 
-- Subir a rede
+- Subir a rede, testar
 - definir o que vai fazer a api
+- Testar API
+- Subir a API no api gateway
 - Subir o Banco
 - Criar as APIS
 
