@@ -11,8 +11,5 @@ terraform.lock.hcl
 # Planos temporários
 *.tfplan
 
-# Chaves privadas (por segurança)
-*.pem
-*.ppk
-
-minha-chave-ec2.pem
+# Anotações
+Projeto.txt

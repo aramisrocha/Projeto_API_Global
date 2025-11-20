@@ -8,19 +8,48 @@ terraform {
   }
 }
 
-provider "aws" {
-  region = "us-east-2"
-}
 
-module "network_devops_01" {
+# Criando a VPC na regiao de virginia
+
+module "network_primary" {
   source = "../Modules/networking"
 
-  name                  = "Projeto_api_global"
-  vpc_cidr              = "10.0.0.0/16"
-  enable_dns_hostnames  = true
+
+  providers = {
+    aws = aws.primary
+  }
+
+  name                 = "Projeto_api_global-primario"
+  vpc_cidr             = "10.0.0.0/16"
+  enable_dns_hostnames = true
+
   subnets = [
-    { name = "SubnetA", cidr = "10.0.1.0/24", az = "us-east-2a" },
+    {
+      name = "SubnetA"
+      cidr = "10.0.1.0/24"
+      az   = "${var.primary_region}a"  # ex: us-east-1a
+    }
   ]
 }
 
+# Criando uma VPC na regiao de São Paulo
 
+module "network_secondary" {
+  source = "../Modules/networking"
+
+  providers = {
+    aws = aws.secondary
+  }
+
+  name                 = "Projeto_api_global-secondario"
+  vpc_cidr             = "10.1.0.0/16" # 👉 recomendo CIDR diferente
+  enable_dns_hostnames = true
+
+  subnets = [
+    {
+      name = "SubnetA"
+      cidr = "10.1.1.0/24"
+      az   = "${var.secondary_region}a"  # ex: sa-east-1a
+    }
+  ]
+}
