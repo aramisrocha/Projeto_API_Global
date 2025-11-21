@@ -42,7 +42,7 @@ module "network_secondary" {
   }
 
   name                 = "Projeto_api_global-secondario"
-  vpc_cidr             = "10.1.0.0/16" # 👉 recomendo CIDR diferente
+  vpc_cidr             = "10.1.0.0/16"
   enable_dns_hostnames = true
 
   subnets = [
