@@ -6,9 +6,11 @@ Api Global
 - definir o que vai fazer a api OK
 - Testar API - OK 
 - Subir a rede na segunda região OK
-- Criar as duas funçoes   lambda com a api
+- Criar as duas funçoes  em cada regiao lambda com a api
 - Criar uma Banco de dados no RDS Aurora expandido para a as duas regoes
 - Alterar a API para gravar no Banco 
+- Colocar o APlication load Balance na frente das Lambdas 
+- Verificar se é necessario criar um VPC link 
 - Subir a API no api gateway
 - Critar hosted zone no route 53 
 - Adicionar os registros como filover e testar

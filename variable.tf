@@ -3,7 +3,7 @@ variable "primary_region" {
 }
 
 variable "secondary_region" {
-  default = "sa-east-1"
+  default = "eu-west-1"
 }
 
 provider "aws" {
